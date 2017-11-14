@@ -343,3 +343,30 @@ $(document).ready(function() {
     })
 
 });
+
+function addToD() {
+    var str = $("#input").val(); 
+    var dropdown = $("#dropdown option:selected").text();
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("txtHint").innerHTML = this.responseText;
+            console.log(this.responseText);
+        }
+    };
+    xmlhttp.open("GET", "test.php?text=" + str + "&dropdown=" + dropdown, true);
+    xmlhttp.send();
+}
+
+function printStuff() {
+    var dropdown = $('#window_filter_type_selector option:selected').text();
+    console.log("Filter type: " + dropdown);
+    var fsamp = $('#lowwindow_fsamp').text();
+    console.log("fsamp: " + fsamp);
+    var fcutoff = $('#lowwindowcutoff').text();
+    console.log("fcutoff: " + fcutoff);
+    var order = $('#lowwindoworder').text();
+    console.log("order: " + order);
+    var wind = $('#window_window_selector option:selected').text();
+    console.log("window: " +  wind);
+}
