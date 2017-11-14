@@ -352,13 +352,15 @@ function addToDb() {
             console.log(this.responseText);
         }
     };
-    var query = "db.php?ftype=" + arr[0] + "&fsamp=" + arr[1];
-    query += "&fcutoff=" + arr[2] + "&order=" + arr[3] + "&window=" + arr[4];
+    var query = "db.php?tab=" + arr[0] + "&ftype=" + arr[1] + "&fsamp=" + arr[2];
+    query += "&fcutoff=" + arr[3] + "&order=" + arr[4] + "&window=" + arr[5];
     xmlhttp.open("GET", query, true);
     xmlhttp.send();
 }
 
 function printStuff() {
+    var tab = $('#FIR_tabs li.active').text();
+    console.log("tab: " + tab);
     var dropdown = $('#window_filter_type_selector option:selected').text();
     console.log("Filter type: " + dropdown);
     var fsamp = $('#lowwindow_fsamp').val();
@@ -369,5 +371,5 @@ function printStuff() {
     console.log("order: " + order);
     var wind = $('#window_window_selector option:selected').text();
     console.log("window: " +  wind);
-    return new Array(dropdown, fsamp, fcutoff, order, wind);
+    return new Array(tab, dropdown, fsamp, fcutoff, order, wind);
 }

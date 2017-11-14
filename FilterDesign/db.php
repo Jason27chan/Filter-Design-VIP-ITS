@@ -1,4 +1,5 @@
 <?php 
+	$tab = $_GET['tab'];
 	$ftype = $_GET['ftype'];
 	$fsamp = $_GET['fsamp'];
 	$fcutoff = $_GET['fcutoff'];
@@ -9,7 +10,7 @@
 	if (!$con) {
 	    die('Could not connect: ' . mysqli_error($con));
 	}
-	$sql = "INSERT INTO FD_State (filter_type, fsamp, fcutoff, degree, window) VALUES (\"{$ftype}\", \"{$fsamp}\", \"{$fcutoff}\", \"{$order}\", \"{$window}\")";
+	$sql = "INSERT INTO FD_State (filter_type, fsamp, fcutoff, degree, window, tab) VALUES (\"{$ftype}\", \"{$fsamp}\", \"{$fcutoff}\", \"{$order}\", \"{$window}\", \"{$tab}\")";
 
 	if ($con->query($sql) === TRUE) {
 	    echo "New record created successfully ";
