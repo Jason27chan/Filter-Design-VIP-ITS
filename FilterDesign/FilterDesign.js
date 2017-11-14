@@ -361,11 +361,11 @@ function addToD() {
 function printStuff() {
     var dropdown = $('#window_filter_type_selector option:selected').text();
     console.log("Filter type: " + dropdown);
-    var fsamp = $('#lowwindow_fsamp').text();
+    var fsamp = $('#lowwindow_fsamp').val();
     console.log("fsamp: " + fsamp);
-    var fcutoff = $('#lowwindowcutoff').text();
+    var fcutoff = $('#lowwindowcutoff').val();
     console.log("fcutoff: " + fcutoff);
-    var order = $('#lowwindoworder').text();
+    var order = $('#lowwindoworder').val();
     console.log("order: " + order);
     var wind = $('#window_window_selector option:selected').text();
     console.log("window: " +  wind);
