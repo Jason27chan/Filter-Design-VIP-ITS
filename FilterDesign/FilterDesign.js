@@ -344,17 +344,17 @@ $(document).ready(function() {
 
 });
 
-function addToD() {
-    var str = $("#input").val(); 
-    var dropdown = $("#dropdown option:selected").text();
+function addToDb() { 
+    var arr = printStuff();
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("txtHint").innerHTML = this.responseText;
             console.log(this.responseText);
         }
     };
-    xmlhttp.open("GET", "test.php?text=" + str + "&dropdown=" + dropdown, true);
+    var query = "db.php?ftype=" + arr[0] + "&fsamp=" + arr[1];
+    query += "&fcutoff=" + arr[2] + "&order=" + arr[3] + "&window=" + arr[4];
+    xmlhttp.open("GET", query, true);
     xmlhttp.send();
 }
 
@@ -369,4 +369,5 @@ function printStuff() {
     console.log("order: " + order);
     var wind = $('#window_window_selector option:selected').text();
     console.log("window: " +  wind);
+    return new Array(dropdown, fsamp, fcutoff, order, wind);
 }
