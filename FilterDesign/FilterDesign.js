@@ -358,7 +358,7 @@ function addToDb() {
     xmlhttp.send();
 }
 
-function printStuff() {
+function printInfo() {
     var tab = $('#FIR_tabs li.active').text();
     console.log("tab: " + tab);
     var dropdown = $('#window_filter_type_selector option:selected').text();
