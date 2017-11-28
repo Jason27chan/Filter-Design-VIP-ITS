@@ -16,25 +16,39 @@
 <body>
 	<div class="col-lg-6 container" style="padding-top: 5%; padding-left: 2%;">
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vestibulum, dui in tincidunt lacinia, magna dolor posuere tellus, non rhoncus augue mauris vitae risus. Aliquam erat volutpat. Sed ac ex ipsum. Etiam eget lacinia sem, pretium pellentesque nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin dignissim ac lectus at placerat. Vivamus vel ligula orci. Ut posuere, mauris sit amet aliquet vehicula, elit ipsum ultrices erat, nec venenatis ipsum felis non tortor. Suspendisse facilisis condimentum enim, et ultricies urna iaculis posuere. Nullam hendrerit ipsum quis ligula efficitur viverra. Fusce at faucibus mi. Cras id mauris auctor, lobortis libero sit amet, laoreet massa. Duis placerat tortor vitae leo porta dapibus.
+			Design two lowpass FIR filters with M = 30 and &omega; = 0.4&Pi; = 2&Pi;(2000/10000), one using a Hamming
+			window, the other with a Rectangular window. For the measurement of passband and stopband edges, there
+			are two approaches: use the filterdesign GUI and read numbers from the plot, zooming when necessary,
+			or export the filter coefficients from the GUI and use MATLAB to make plots of the magnitude of the
+			frequency response using freekz (or freqz) and plot. In MATLAB zooming would be more precise and
+			reliable because the frequency sampling can be specified in the call to freekz.
 		</p>
 		<ol>
 			<li class="form-group">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id.
-				<input class="form-control">
+				For the filter obtained with the rectangular window, determine an accurate measurement of the passband
+				edge .!Op/ assuming the passband ripple specification is ıp D 0:1, i.e., 1˙0:1.				
+				<input id="q1" class="form-control">
 			</li>
 			<li class="form-group">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id.
-				<input class="form-control">
+				For the filter obtained with the rectangular window, determine an accurate measurement of the stopband
+				edge .!O s/ assuming the stopband ripple specification is ıs D 0:1.
+				<input id="q2" class="form-control">
 			</li>
 			<li class="form-group">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id.
-				<input class="form-control">
+				For the filter obtained with the Hamming window, determine an accurate measurement of the passband
+				edge .!Op/ assuming the passband ripple specification is ıp D 0:01, i.e., 1˙0:01.
+				<input id="q3" class="form-control">
 			</li>
 			<li class="form-group">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id.
-				<input class="form-control">
+				For the filter obtained with the Hamming window, determine an accurate measurement of the stopband
+				edge .!O s/ assuming the stopband ripple specification is ıs D 0:01.
+				<input id="q4" class="form-control">
 			</li>
+			<li class="form-group">
+				Question: is the cutoff frequency half way between .!Op/ and .!O s/ for both filters?
+				<input id="q5" class="form-control">
+			</li>
+        	<p><button type="button" onClick="printInfo()">Submit</button></p>
 		</ol>
 	</div>
 	<div class="col-lg-6 container" style="padding-top: 5%; padding-bottom:5%; padding-right:5%;">
@@ -146,8 +160,8 @@
 	                            </span>
 	                        </li>
 	                        <li> 
-	                        	<p><button type="button" onClick="addToDb()">Submit</button></p>
-	                        	<p><button type="button" onClick="printStuff()">Print to Console</button></p>
+	                        	<p><button type="button" onClick="recordGUIState()">Submit</button></p>
+	                        	<p><button type="button" onClick="printInfo()">Print to Console</button></p>
 
 	                        </li>
 
